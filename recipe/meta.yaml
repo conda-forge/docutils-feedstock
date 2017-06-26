@@ -1,8 +1,8 @@
 {%set name = "docutils" %}
-{%set version = "0.13.1" %}
+{%set version = "0.14rc1" %}
 {%set compress_type = "tar.gz" %}
 {%set hash_type = "sha256" %}
-{%set hash_val = "718c0f5fb677be0f34b781e04241c4067cbd9327b66bdd8e763201130f5175be" %}
+{%set hash_val = "7ee93a6fbab0f46bdda4d94384de40a04bbbbb53dbd019ce0fbbbfed22f6589a" %}
 {%set build_num = "0" %}
 
 package:
