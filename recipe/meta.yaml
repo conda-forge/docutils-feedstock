@@ -1,26 +1,26 @@
+{% set name = "docutils" %}
 {% set version = "0.18" %}
 
+
 package:
-  name: docutils
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/d/docutils/docutils-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/docutils-{{ version }}.tar.gz
   sha256: c1d5dab2b11d16397406a282e53953fe495a46d69ae329f55aa98a5c4e3c5fbb
 
 build:
   number: 1
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python
+    - python >=3.6
     - pip
   run:
-    - python
+    - python >=3.6
 
 test:
   imports:
@@ -45,7 +45,7 @@ test:
 
 about:
   home: http://docutils.sourceforge.net/
-  license: Public Domain Dedictation and BSD 2-Clause and PSF 2.1.1 and GPL 3.0
+  license: BSD-2-Clause and LicenseRef-Python-2.1.1 and GPL-3.0-or-later
   license_file: COPYING.txt
   summary: Docutils -- Python Documentation Utilities
   description: |
