@@ -7,20 +7,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/docutils-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/docutils-{{ version }}.tar.gz
   sha256: 686577d2e4c32380bb50cbb22f575ed742d58168cee37e99117a854bcd88f125
 
 build:
-  number: 5
-  skip: true   # [py<36]
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 6
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation 
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
+    - setuptools                             # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - python
+    - setuptools
     - pip
   run:
     - python
