@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/docutils-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/docutils-{{ version }}.tar.gz
   sha256: 3a6b18732edf182daa3cd12775bbb338cf5691468f91eeeb109deff6ebfa986f
 
 build:
@@ -24,15 +24,15 @@ build:
     - rst2xml = docutils.core:rst2xml
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - flit-core >=3.4,<4
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -52,6 +52,7 @@ test:
     - rst2xml --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: http://docutils.sourceforge.net/
