@@ -5,12 +5,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/d/docutils/docutils-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/d/docutils/docutils-{{ version }}.tar.gz
   sha256: 679987caf361a7539d76e584cbeddc311e3aee937877c87346f31debc63e9d06
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
@@ -18,6 +18,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - python
+    - setuptools
     - pip
   run:
     - python
@@ -45,7 +46,9 @@ test:
 
 about:
   home: http://docutils.sourceforge.net/
-  license: Public Domain Dedictation and BSD 2-Clause and PSF 2.1.1 and GPL 3.0
+  # docutils itself contains GPL-3.0-or-later licensed code as stated in COPYING.txt
+  # but the relevant file tools/editors/emacs/rst.el is not shipped as part of the package.
+  license: CC-PDDC AND BSD-3-Clause AND BSD-2-Clause AND ZPL-2.1
   license_file: COPYING.txt
   summary: Docutils -- Python Documentation Utilities
   description: |
