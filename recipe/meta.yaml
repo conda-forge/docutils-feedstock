@@ -1,5 +1,5 @@
 {% set name = "docutils" %}
-{% set version = "0.21.2" %}
+{% set version = "0.22" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/docutils-{{ version }}.tar.gz
-  sha256: 3a6b18732edf182daa3cd12775bbb338cf5691468f91eeeb109deff6ebfa986f
+  sha256: ba9d57750e92331ebe7c08a1bbf7a7f8143b86c476acd51528b042216a6aad0f
 
 build:
   entry_points:
@@ -24,7 +24,7 @@ build:
     - rst2xml = docutils.core:rst2xml
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -59,7 +59,7 @@ about:
   # docutils itself contains GPL-3.0-or-later licensed code as stated in COPYING.txt
   # but the relevant file tools/editors/emacs/rst.el is not shipped as part of the package.
   license: CC-PDDC AND BSD-3-Clause AND BSD-2-Clause AND ZPL-2.1
-  license_file: COPYING.txt
+  license_file: COPYING.rst
   summary: Docutils -- Python Documentation Utilities
   description: |
     Docutils is an open-source text processing system for processing plaintext
