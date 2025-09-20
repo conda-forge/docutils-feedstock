@@ -1,5 +1,5 @@
 {% set name = "docutils" %}
-{% set version = "0.22.1" %}
+{% set version = "0.22.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/docutils-{{ version }}.tar.gz
-  sha256: d2fb50923a313532b6d41a77776d24cb459a594be9b7e4afa1fbcb5bda1893e6
+  sha256: 9fdb771707c8784c8f2728b67cb2c691305933d68137ef95a75db5f4dfbc213d
 
 build:
   entry_points:
