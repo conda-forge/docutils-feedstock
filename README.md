@@ -3,20 +3,13 @@ About docutils-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/docutils-feedstock/blob/main/LICENSE.txt)
 
-Home: http://docutils.sourceforge.net/
+Home: https://docutils.sourceforge.io/
 
-Package license: CC-PDDC AND BSD-3-Clause AND BSD-2-Clause AND ZPL-2.1
+Package license: LGPL-3.0-only
 
 Summary: Docutils -- Python Documentation Utilities
 
-Development: http://svn.code.sf.net/p/docutils/code
-
-Documentation: http://docutils.sourceforge.net/docs/index.html
-
-Docutils is an open-source text processing system for processing plaintext
-documentation into useful formats, such as HTML, LaTeX, man-pages, open-
-document, or XML.
-
+Documentation: https://docutils.sourceforge.io/docs/
 
 Current build status
 ====================
